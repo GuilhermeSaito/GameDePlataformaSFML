@@ -1,0 +1,5 @@
+g++ -c src/main/main.cpp src/data.cpp src/mainController.cpp src/openMenu.cpp
+
+g++ main.o data.o mainController.o openMenu.o -o main-app -lsfml-graphics -lsfml-window -lsfml-system
+
+./main-app
