@@ -1,1 +1,0 @@
-# Outro joguinho usando SFML e C++

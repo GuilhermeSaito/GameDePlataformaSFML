@@ -4,7 +4,13 @@ Data *Data::dataInstance = NULL;
 
 Data::Data()
 {
-    if (!backGroundErase.loadFromFile("data/erase.png"))
+    if (!openMenuImage.loadFromFile("data/imageOpenMenu.png"))
+        EXIT_FAILURE;
+
+    if (!openMenuFont.loadFromFile("data/fonts/TurretRoad-Medium.ttf"))
+        EXIT_FAILURE;
+
+    if (!notImplementedYet.loadFromFile("data/notImplementedYet.png"))
         EXIT_FAILURE;
 }
 
@@ -20,7 +26,17 @@ Data *Data::getInstance()
     return dataInstance;
 }
 
-sf::Texture *Data::getBackGroundErase()
+sf::Texture *Data::getOpenMenuImage()
 {
-    return &backGroundErase;
+    return &openMenuImage;
+}
+
+sf::Font *Data::getOpenMenuFont()
+{
+    return &openMenuFont;
+}
+
+sf::Texture *Data::getNotImplementedYet()
+{
+    return &notImplementedYet;
 }

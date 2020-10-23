@@ -5,11 +5,17 @@
 class OpenMenu
 {
 private:
-    sf::Sprite backGroundEraseSprite;
+    sf::Sprite openMenuBackGroundSprite;
+
+    sf::Text menu1;
+    sf::Text menu2;
+    sf::Text menu3;
+    sf::Text menu4;
 
 public:
     OpenMenu();
     ~OpenMenu();
 
-    void Start(sf::RenderWindow &window);
+    int Start(sf::RenderWindow &window);
+    int ShowNotImplementedYet(sf::RenderWindow &window);
 };

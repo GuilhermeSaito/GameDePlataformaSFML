@@ -9,9 +9,15 @@ MainController::~MainController()
 {
 }
 
+// Controle de Telas
 void MainController::Start()
 {
-    window.create(sf::VideoMode(780, 1080), "Arudina's Game");
-    openMenu.Start(window);
+    int controler = 1;
+    window.create(sf::VideoMode(1080, 720), "Arudina's Game");
+    while (controler != -1)
+    {
+        if (controler == 1)
+            controler = openMenu.Start(window);
+    }
     window.close();
 }
