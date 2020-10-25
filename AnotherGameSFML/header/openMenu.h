@@ -17,5 +17,7 @@ public:
     ~OpenMenu();
 
     int Start(sf::RenderWindow &window);
+    int ShowCharacterSelection(sf::RenderWindow &window);
+
     int ShowNotImplementedYet(sf::RenderWindow &window);
 };

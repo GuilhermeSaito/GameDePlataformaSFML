@@ -57,8 +57,9 @@ int OpenMenu::Start(sf::RenderWindow &window)
                 // 3 - Ranking Screen
                 // 4 - Exit Game
                 case sf::Keyboard::Return:
+                    // New Game
                     if (controler == 1)
-                        if (!ShowNotImplementedYet(window))
+                        if (!ShowCharacterSelection(window))
                             return 1;
                         else
                             return -1;
@@ -89,21 +90,27 @@ int OpenMenu::Start(sf::RenderWindow &window)
         {
             menu1.setFillColor(sf::Color(255, 0, 0, 255));
             menu2.setFillColor(sf::Color(255, 255, 255, 255));
+            menu3.setFillColor(sf::Color(255, 255, 255, 255));
+            menu4.setFillColor(sf::Color(255, 255, 255, 255));
         }
         else if (controler == 2)
         {
             menu1.setFillColor(sf::Color(255, 255, 255, 255));
             menu2.setFillColor(sf::Color(255, 0, 0, 255));
             menu3.setFillColor(sf::Color(255, 255, 255, 255));
+            menu4.setFillColor(sf::Color(255, 255, 255, 255));
         }
         else if (controler == 3)
         {
+            menu1.setFillColor(sf::Color(255, 255, 255, 255));
             menu2.setFillColor(sf::Color(255, 255, 255, 255));
             menu3.setFillColor(sf::Color(255, 0, 0, 255));
             menu4.setFillColor(sf::Color(255, 255, 255, 255));
         }
         else
         {
+            menu1.setFillColor(sf::Color(255, 255, 255, 255));
+            menu2.setFillColor(sf::Color(255, 255, 255, 255));
             menu3.setFillColor(sf::Color(255, 255, 255, 255));
             menu4.setFillColor(sf::Color(255, 0, 0, 255));
         }
@@ -116,6 +123,126 @@ int OpenMenu::Start(sf::RenderWindow &window)
         window.draw(menu4);
         window.display();
     }
+}
+
+int OpenMenu::ShowCharacterSelection(sf::RenderWindow &window)
+{
+    int controler = 1;
+
+    menu1.setString("1 Player  - 1 Phase");
+    menu1.setPosition({460.f, 220.f});
+    menu1.setCharacterSize(25);
+
+    menu2.setString("2 Players - 1 Phase");
+    menu2.setPosition({460.f, 280.f});
+    menu2.setCharacterSize(25);
+
+    menu3.setString("1 player  - 2 Phase");
+    menu3.setPosition({460.f, 340});
+    menu3.setCharacterSize(25);
+
+    menu4.setString("2 players - 2 Phase");
+    menu4.setPosition({460.f, 400});
+    menu4.setCharacterSize(25);
+
+    while (true)
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // Window Close
+            if (event.type == sf::Event::Closed)
+                return -1;
+            //Key pressed
+            if (event.type == sf::Event::KeyPressed)
+            {
+                switch (event.key.code)
+                {
+                case sf::Keyboard::Up:
+                    controler--;
+                    break;
+                case sf::Keyboard::Down:
+                    controler++;
+                    break;
+                // Keyboard::Return = Enter
+                case sf::Keyboard::Return:
+                    // 1 - 1 Player	    1 Phase
+                    // 2 - 2 Players	1 Phase
+                    // 3 - 1 Player	    2 Phase
+                    // 4 - 2 Players	2 Phase
+                    if (controler == 1)
+                        if (!ShowNotImplementedYet(window))
+                            return 0;
+                        else
+                            return -1;
+                    else if (controler == 2)
+                        if (!ShowNotImplementedYet(window))
+                            return 0;
+                        else
+                            return -1;
+                    else if (controler == 3)
+                        if (!ShowNotImplementedYet(window))
+                            return 0;
+                        else
+                            return -1;
+                    else if (!ShowNotImplementedYet(window))
+                        return 0;
+                    else
+                        return -1;
+                    break;
+                }
+                // Don't letting the menu go for a invalid number.
+                if (controler < 1)
+                    controler = 1;
+                if (controler > 4)
+                    controler = 4;
+            }
+        }
+
+        // Eh necessario fazer assim, pois nao sei em qual a parte vermelha do menu vai estar
+        // Da para criar menus locais, nos metodos, ai da para diminuir algumas linhas de codigo
+        // Mas pessoalmente acredito que eh melhor acrescentar um pouco mais de linha de codido
+        // do que ir criando variaveis locais para cada um
+        if (controler == 1)
+        {
+            menu1.setFillColor(sf::Color(255, 0, 0, 255));
+            menu2.setFillColor(sf::Color(255, 255, 255, 255));
+            menu3.setFillColor(sf::Color(255, 255, 255, 255));
+            menu4.setFillColor(sf::Color(255, 255, 255, 255));
+        }
+        else if (controler == 2)
+        {
+            menu1.setFillColor(sf::Color(255, 255, 255, 255));
+            menu2.setFillColor(sf::Color(255, 0, 0, 255));
+            menu3.setFillColor(sf::Color(255, 255, 255, 255));
+            menu4.setFillColor(sf::Color(255, 255, 255, 255));
+        }
+        else if (controler == 3)
+        {
+            menu1.setFillColor(sf::Color(255, 255, 255, 255));
+            menu2.setFillColor(sf::Color(255, 255, 255, 255));
+            menu3.setFillColor(sf::Color(255, 0, 0, 255));
+            menu4.setFillColor(sf::Color(255, 255, 255, 255));
+        }
+        else
+        {
+            menu1.setFillColor(sf::Color(255, 255, 255, 255));
+            menu2.setFillColor(sf::Color(255, 255, 255, 255));
+            menu3.setFillColor(sf::Color(255, 255, 255, 255));
+            menu4.setFillColor(sf::Color(255, 0, 0, 255));
+        }
+
+        window.clear();
+
+        window.draw(menu1);
+        window.draw(menu2);
+        window.draw(menu3);
+        window.draw(menu4);
+
+        window.display();
+    }
+    // Just in case something wrong happen
+    return -1;
 }
 
 int OpenMenu::ShowNotImplementedYet(sf::RenderWindow &window)
