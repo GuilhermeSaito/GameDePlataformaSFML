@@ -9,6 +9,8 @@ private:
     static Data *dataInstance;
 
     sf::Texture openMenuImage;
+    sf::Texture playerRightImage;
+    sf::Texture playerLeftImage;
 
     sf::Font openMenuFont;
 
@@ -19,6 +21,8 @@ public:
     ~Data();
 
     sf::Texture *getOpenMenuImage();
+    sf::Texture *getPlayerRightImage();
+    sf::Texture *getPlayerLeftImage();
     sf::Font *getOpenMenuFont();
 
     sf::Texture *getNotImplementedYet();

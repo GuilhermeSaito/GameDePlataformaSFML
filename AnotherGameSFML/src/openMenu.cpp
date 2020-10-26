@@ -60,7 +60,7 @@ int OpenMenu::Start(sf::RenderWindow &window)
                     // New Game
                     if (controler == 1)
                         if (!ShowCharacterSelection(window))
-                            return 1;
+                            return 2;
                         else
                             return -1;
                     // New Game
@@ -171,25 +171,13 @@ int OpenMenu::ShowCharacterSelection(sf::RenderWindow &window)
                     // 3 - 1 Player	    2 Phase
                     // 4 - 2 Players	2 Phase
                     if (controler == 1)
-                        if (!ShowNotImplementedYet(window))
-                            return 0;
-                        else
-                            return -1;
+                        return 0;
                     else if (controler == 2)
-                        if (!ShowNotImplementedYet(window))
-                            return 0;
-                        else
-                            return -1;
+                        return 0;
                     else if (controler == 3)
-                        if (!ShowNotImplementedYet(window))
-                            return 0;
-                        else
-                            return -1;
-                    else if (!ShowNotImplementedYet(window))
                         return 0;
                     else
-                        return -1;
-                    break;
+                        return 0;
                 }
                 // Don't letting the menu go for a invalid number.
                 if (controler < 1)

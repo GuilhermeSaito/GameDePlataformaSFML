@@ -18,6 +18,8 @@ void MainController::Start()
     {
         if (controler == 1)
             controler = openMenu.Start(window);
+        else if (controler == 2)
+            controler = phaseManager.Start(window);
     }
     window.close();
 }

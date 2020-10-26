@@ -6,6 +6,10 @@ Data::Data()
 {
     if (!openMenuImage.loadFromFile("data/imageOpenMenu.png"))
         EXIT_FAILURE;
+    if (!playerRightImage.loadFromFile("data/playerRight.png"))
+        EXIT_FAILURE;
+    if (!playerLeftImage.loadFromFile("data/playerLeft.png"))
+        EXIT_FAILURE;
 
     if (!openMenuFont.loadFromFile("data/fonts/TurretRoad-Medium.ttf"))
         EXIT_FAILURE;
@@ -29,6 +33,16 @@ Data *Data::getInstance()
 sf::Texture *Data::getOpenMenuImage()
 {
     return &openMenuImage;
+}
+
+sf::Texture *Data::getPlayerRightImage()
+{
+    return &playerRightImage;
+}
+
+sf::Texture *Data::getPlayerLeftImage()
+{
+    return &playerLeftImage;
 }
 
 sf::Font *Data::getOpenMenuFont()
