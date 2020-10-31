@@ -7,11 +7,15 @@ Player1::Player1(sf::Vector2f pos, int hp)
 
     this->hp = hp;
     hpBar.setFillColor(sf::Color::Green);
-    rect.setSize(sf::Vector2f(32, 32));
+    rect.setSize(sf::Vector2f(48, 48));
 
-    sprite.setTexture(*(Data::getInstance()->getPlayerRightImage()));
+    sprite.setTexture(*(Data::getInstance()->getPlayer1Texture()));
     sprite.setPosition(position);
-    right = true;
+    // Arrumado o quadrado do personagem para 48x48
+    sprite.setScale(sf::Vector2f(1.021, 1));
+    controler = 0;
+    cont = 0;
+    right = false;
 
     pointsAcquired = 0;
 }
@@ -27,14 +31,16 @@ void Player1::Movimentation()
         speed.x = -walkSpeed;
         position.x += speed.x;
         right = false;
+        cont++;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && (position.x <= ((175 * 32) - 40)))
     {
         speed.x = walkSpeed;
         position.x += speed.x;
         right = true;
+        cont++;
     }
-    AdjustSprite();
+    AnimationSprite();
 
     rect.setPosition(position);
     sprite.setPosition(rect.getPosition());
@@ -51,10 +57,18 @@ void Player1::DrawPlayer1(sf::RenderWindow &window)
     window.draw(hpBar);
 }
 
-void Player1::AdjustSprite()
+void Player1::AnimationSprite()
 {
+    // Se quiser ver a animacao do personagem sem precisar deixar o botao apertado, tira o comentario
+    //cont++;
+    if (!(cont % 100))
+        controler++;
+    if (controler > 2)
+        controler = 0;
+    if (cont > 10000)
+        cont = 0;
     if (right)
-        sprite.setTexture(*(Data::getInstance()->getPlayerRightImage()));
+        sprite.setTextureRect(sf::IntRect(47 * controler, 48, 47, 48));
     else
-        sprite.setTexture(*(Data::getInstance()->getPlayerLeftImage()));
+        sprite.setTextureRect(sf::IntRect(47 * controler, 0, 47, 48));
 }

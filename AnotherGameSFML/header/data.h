@@ -9,8 +9,11 @@ private:
     static Data *dataInstance;
 
     sf::Texture openMenuImage;
-    sf::Texture playerRightImage;
-    sf::Texture playerLeftImage;
+    sf::Texture player1Image;
+    sf::Texture brickFloorTexture;
+    sf::Texture iceFloorTexture;
+    sf::Texture iceFloor2Texture;
+    sf::Texture purpleFloorTexture;
 
     sf::Font openMenuFont;
 
@@ -21,8 +24,12 @@ public:
     ~Data();
 
     sf::Texture *getOpenMenuImage();
-    sf::Texture *getPlayerRightImage();
-    sf::Texture *getPlayerLeftImage();
+    sf::Texture *getPlayer1Texture();
+    sf::Texture *getBrickFloorTexture();
+    sf::Texture *getIceFloorTexture();
+    sf::Texture *getIceFloor2Texture();
+    sf::Texture *getPurpleFloorTexture();
+
     sf::Font *getOpenMenuFont();
 
     sf::Texture *getNotImplementedYet();

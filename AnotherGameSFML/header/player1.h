@@ -6,9 +6,11 @@ class Player1 : public Entity
 {
 private:
     int pointsAcquired;
+    int controler;
+    int cont;
     bool right;
 
-    void AdjustSprite();
+    void AnimationSprite();
 
 public:
     Player1(sf::Vector2f pos = {200, 500}, int hp = 100);

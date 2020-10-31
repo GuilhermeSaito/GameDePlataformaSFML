@@ -6,9 +6,15 @@ Data::Data()
 {
     if (!openMenuImage.loadFromFile("data/imageOpenMenu.png"))
         EXIT_FAILURE;
-    if (!playerRightImage.loadFromFile("data/playerRight.png"))
+    if (!player1Image.loadFromFile("data/Player1Image.png"))
         EXIT_FAILURE;
-    if (!playerLeftImage.loadFromFile("data/playerLeft.png"))
+    if (!brickFloorTexture.loadFromFile("data/phaseMap/tilesUsed/BrickFloor.jpg"))
+        EXIT_FAILURE;
+    if (!iceFloorTexture.loadFromFile("data/phaseMap/tilesUsed/IceFloor.jpg"))
+        EXIT_FAILURE;
+    if (!iceFloor2Texture.loadFromFile("data/phaseMap/tilesUsed/IceFloor2.jpg"))
+        EXIT_FAILURE;
+    if (!purpleFloorTexture.loadFromFile("data/phaseMap/tilesUsed/PurpleFloor.jpg"))
         EXIT_FAILURE;
 
     if (!openMenuFont.loadFromFile("data/fonts/TurretRoad-Medium.ttf"))
@@ -35,14 +41,29 @@ sf::Texture *Data::getOpenMenuImage()
     return &openMenuImage;
 }
 
-sf::Texture *Data::getPlayerRightImage()
+sf::Texture *Data::getPlayer1Texture()
 {
-    return &playerRightImage;
+    return &player1Image;
 }
 
-sf::Texture *Data::getPlayerLeftImage()
+sf::Texture *Data::getBrickFloorTexture()
 {
-    return &playerLeftImage;
+    return &brickFloorTexture;
+}
+
+sf::Texture *Data::getIceFloorTexture()
+{
+    return &iceFloorTexture;
+}
+
+sf::Texture *Data::getIceFloor2Texture()
+{
+    return &iceFloor2Texture;
+}
+
+sf::Texture *Data::getPurpleFloorTexture()
+{
+    return &purpleFloorTexture;
 }
 
 sf::Font *Data::getOpenMenuFont()

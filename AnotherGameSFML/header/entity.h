@@ -22,4 +22,5 @@ protected:
 
 public:
     sf::FloatRect getBoundBox();
+    sf::Vector2f getPosition();
 };

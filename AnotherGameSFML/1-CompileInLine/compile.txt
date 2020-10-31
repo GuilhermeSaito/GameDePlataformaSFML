@@ -1,5 +1,0 @@
-g++ -c src/main/main.cpp src/data.cpp src/entity.cpp src/mainController.cpp src/openMenu.cpp src/phaseManager.cpp src/player1.cpp
-
-g++ main.o data.o entity.o mainController.o openMenu.o phaseManager.o player1.o -o main-app -lsfml-graphics -lsfml-window -lsfml-system
-
-./main-app

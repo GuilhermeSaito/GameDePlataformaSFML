@@ -1,0 +1,11 @@
+Quadrado do personagem eh:
+width height            
+48  x 48
+
+Quadrado do tile:
+32 x 32             Isso eh porque estou com preguica de talvez editar e procurar uma imagem maior
+
+Tamanho dos Mapas:
+width           height
+(1080*4)/32     720/32 = 23          Essas contas ai vao dar a quantidade de tile
+
