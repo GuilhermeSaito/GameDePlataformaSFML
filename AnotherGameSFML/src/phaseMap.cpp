@@ -71,13 +71,15 @@ std::vector<std::vector<Tile *>> PhaseMap::getMatrixTile()
 
 Tile *PhaseMap::getTile(int posX, int posY)
 {
-    // vai de 0 a 21 (altura)    e 0 a 175 (largura).
+    // vai de 0 a 22 (altura)    e 0 a 134 (largura).
     return tileMap[posY][posX];
 }
 
+// Se for um tile Valido, esse if vai dar verdadeiro, portanto eu retorno falso para que ele
+// NAO entre no if da verificacao da chamada desse metodo
 bool PhaseMap::isValidTile(int i, int j)
 {
     if (((i >= 0) && (i <= larguraMax)) && ((j >= 0) && (j <= alturaMax)))
-        return true;
-    return false;
+        return false;
+    return true;
 }

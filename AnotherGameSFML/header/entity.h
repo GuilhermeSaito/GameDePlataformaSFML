@@ -1,6 +1,7 @@
 #pragma once
 
 #include "data.h"
+#include "tile.h"
 
 // Classe base para
 // Player1 e Player2,   Enemy...
@@ -17,10 +18,22 @@ protected:
     sf::Vector2f position;
     sf::Vector2f speed;
     float walkSpeed;
+    float jumpSpeed;
+    float gravityAcceleration;
+    bool onGround;
 
     sf::Sprite sprite;
 
 public:
+    Entity();
+    ~Entity();
+
     sf::FloatRect getBoundBox();
     sf::Vector2f getPosition();
+    sf::Vector2f getSize();
+    void jump();
+    void gravity();
+
+    void collideX(Tile *tile);
+    void collideY(Tile *tile);
 };

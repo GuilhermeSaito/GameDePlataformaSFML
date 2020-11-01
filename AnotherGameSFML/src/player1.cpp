@@ -3,7 +3,7 @@
 Player1::Player1(sf::Vector2f pos, int hp)
 {
     this->position = pos;
-    this->walkSpeed = 10.f;
+    this->walkSpeed = 2.5;
 
     this->hp = hp;
     hpBar.setFillColor(sf::Color::Green);
@@ -13,7 +13,7 @@ Player1::Player1(sf::Vector2f pos, int hp)
     sprite.setPosition(position);
     // Arrumado o quadrado do personagem para 48x48
     sprite.setScale(sf::Vector2f(1.021, 1));
-    controler = 0;
+    controler = 1;
     cont = 0;
     right = false;
 
@@ -33,13 +33,16 @@ void Player1::Movimentation()
         right = false;
         cont++;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && (position.x <= ((175 * 32) - 40)))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && (position.x <= ((130 * 32) - 40)))
     {
         speed.x = walkSpeed;
         position.x += speed.x;
         right = true;
         cont++;
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        jump();
+    gravity();
     AnimationSprite();
 
     rect.setPosition(position);
