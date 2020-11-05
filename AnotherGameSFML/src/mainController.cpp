@@ -14,6 +14,7 @@ void MainController::Start()
 {
     int controler = 1;
     window.create(sf::VideoMode(1080, 720), "Arudina's Game");
+    window.setFramerateLimit(60);
     while (controler != -1)
     {
         if (controler == 1)

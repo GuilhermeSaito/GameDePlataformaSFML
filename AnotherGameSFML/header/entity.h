@@ -31,8 +31,10 @@ public:
     sf::FloatRect getBoundBox();
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
+    sf::Vector2f getSpeed();
     void jump();
     void gravity();
+    void setOnGround(bool oG);
 
     void collideX(Tile *tile);
     void collideY(Tile *tile);

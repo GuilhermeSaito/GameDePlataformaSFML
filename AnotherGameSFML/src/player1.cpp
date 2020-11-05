@@ -3,16 +3,16 @@
 Player1::Player1(sf::Vector2f pos, int hp)
 {
     this->position = pos;
-    this->walkSpeed = 2.5;
+    this->walkSpeed = 4;
 
     this->hp = hp;
     hpBar.setFillColor(sf::Color::Green);
-    rect.setSize(sf::Vector2f(48, 48));
+    rect.setSize(sf::Vector2f(32, 32));
 
     sprite.setTexture(*(Data::getInstance()->getPlayer1Texture()));
     sprite.setPosition(position);
-    // Arrumado o quadrado do personagem para 48x48
-    sprite.setScale(sf::Vector2f(1.021, 1));
+    // Arrumado o quadrado do personagem para 32x32         para 48x48 (1.021, 1)
+    sprite.setScale(sf::Vector2f(0.6666667, 0.6666667));
     controler = 1;
     cont = 0;
     right = false;
@@ -64,7 +64,7 @@ void Player1::AnimationSprite()
 {
     // Se quiser ver a animacao do personagem sem precisar deixar o botao apertado, tira o comentario
     //cont++;
-    if (!(cont % 100))
+    if (!(cont % 50))
         controler++;
     if (controler > 2)
         controler = 0;

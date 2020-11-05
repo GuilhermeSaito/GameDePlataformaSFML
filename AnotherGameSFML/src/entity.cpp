@@ -4,7 +4,7 @@ Entity::Entity()
 {
     speed = sf::Vector2f(0, 0);
     gravityAcceleration = 1.1;
-    jumpSpeed = -20;
+    jumpSpeed = -0.1;
     onGround = false;
 }
 
@@ -27,12 +27,27 @@ sf::Vector2f Entity::getSize()
     return rect.getSize();
 }
 
+sf::Vector2f Entity::getSpeed()
+{
+    return speed;
+}
+
+void Entity::setOnGround(bool oG)
+{
+    onGround = oG;
+}
+
 void Entity::jump()
 {
     if (onGround)
     {
-        speed.y += jumpSpeed;
-        onGround = false;
+        int controler = 0;
+        while (controler < 200)
+        {
+            speed.y += jumpSpeed;
+            onGround = false;
+            controler++;
+        }
     }
 }
 
@@ -67,7 +82,7 @@ void Entity::collideY(Tile *tile)
     else if (speed.y < 0)
     {
         onGround = false;
-        position.y = tile->getBoundBox().height + rect.getSize().y;
+        position.y = tile->getBoundBox().height + rect.getPosition().y;
     }
     speed.y = 0;
 }
