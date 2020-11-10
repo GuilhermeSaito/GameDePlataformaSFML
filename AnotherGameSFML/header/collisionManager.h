@@ -10,10 +10,12 @@ private:
     Player1 *player1;
     PhaseMap *phaseMap;
 
+    void VeirfyCollisionPlayer1();
+
 public:
     CollisionManager();
     ~CollisionManager();
-    void setElements(Player1 *p1, PhaseMap *pM);
-    void StartVerifyCollision();
-    void VeirfyCollisionPlayer1();
+    void setPlayerElement(Player1 *p1);
+    void setPhaseMapElement(PhaseMap *pM);
+    void VerifyCollision();
 };

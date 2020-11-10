@@ -64,7 +64,7 @@ void Player1::AnimationSprite()
 {
     // Se quiser ver a animacao do personagem sem precisar deixar o botao apertado, tira o comentario
     //cont++;
-    if (!(cont % 50))
+    if (!(cont % 25))
         controler++;
     if (controler > 2)
         controler = 0;

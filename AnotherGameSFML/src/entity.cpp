@@ -17,6 +17,11 @@ sf::FloatRect Entity::getBoundBox()
     return sf::FloatRect(position.x, position.y, rect.getSize().x, rect.getSize().y);
 }
 
+void Entity::setPosition(sf::Vector2f pos)
+{
+    position = pos;
+}
+
 sf::Vector2f Entity::getPosition()
 {
     return position;
@@ -35,6 +40,16 @@ sf::Vector2f Entity::getSpeed()
 void Entity::setOnGround(bool oG)
 {
     onGround = oG;
+}
+
+int Entity::getHp()
+{
+    return hp;
+}
+
+void Entity::setHp(int h)
+{
+    hp = h;
 }
 
 void Entity::jump()

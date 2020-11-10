@@ -14,9 +14,26 @@ private:
     PhaseMap phaseMap;
     CollisionManager collisionManager;
 
+    bool isPhase1;
+    std::string phaseMapPath;
+    int gameState;
+
+    int Phase1(sf::RenderWindow &window);
+    int Phase2(sf::RenderWindow &window);
+
+    void update(sf::RenderWindow &window);
+    void render(sf::RenderWindow &window);
+
+    int escPressed(sf::RenderWindow &window);
+
+    void clearEverything();
+    void restartEverything();
+
 public:
     PhaseManager();
     ~PhaseManager();
 
     int Start(sf::RenderWindow &window);
+
+    void setIsPhaseOne(bool phase);
 };

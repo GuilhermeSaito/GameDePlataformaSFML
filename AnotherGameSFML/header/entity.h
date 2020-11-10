@@ -29,9 +29,15 @@ public:
     ~Entity();
 
     sf::FloatRect getBoundBox();
+
     sf::Vector2f getPosition();
+    void setPosition(sf::Vector2f pos);
     sf::Vector2f getSize();
     sf::Vector2f getSpeed();
+
+    int getHp();
+    void setHp(int h);
+
     void jump();
     void gravity();
     void setOnGround(bool oG);

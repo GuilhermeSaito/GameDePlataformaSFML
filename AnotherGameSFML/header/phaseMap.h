@@ -19,7 +19,7 @@ public:
     ~PhaseMap();
 
     // false = error
-    bool loadMapTileProprieties();
+    bool loadMapTileProprieties(std::string path);
     bool draw(sf::RenderWindow &window);
 
     void clearMatrix();

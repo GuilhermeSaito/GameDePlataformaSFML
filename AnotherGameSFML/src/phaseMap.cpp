@@ -13,10 +13,9 @@ PhaseMap::~PhaseMap()
     clearMatrix();
 }
 
-bool PhaseMap::loadMapTileProprieties()
+bool PhaseMap::loadMapTileProprieties(std::string path)
 {
     // temp path
-    std::string path = "data/phaseMap/PhaseMap.json";
     std::ifstream in(path);
     if (!in.good())
     {
